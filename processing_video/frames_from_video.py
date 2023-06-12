@@ -1,5 +1,6 @@
-# source venv/bin/activate
+# This file extracts frames from the video according to a preset layout
 # python3.8 frames_from_video
+
 
 import time
 import os
