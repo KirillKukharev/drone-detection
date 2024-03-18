@@ -9,7 +9,7 @@ Real-time object tracking system based on the YOLOv5 and DeepSORT algorithms. Th
 
 <p align="center">
 
-<img align="center" src="https://github.com/KirillKukharev/drone-detection/detector+tracker/DeepSort+yolov5/architecture/DeepSORT.png">
+<img align="center" src="https://github.com/KirillKukharev/drone-detection/blob/main/detector%2Btracker/DeepSort%20%2B%20yolov5/architecture/DeepSORT.png">
 
 </p>
 
