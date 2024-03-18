@@ -39,16 +39,7 @@ try:
         with open(f'output_{i}.txt', 'w') as f:
             f.write(line)
 
-
-
-
-
-
-
-
-
-
-    # Чтение разметки
+    # read annotation
     with open(annotation_path, newline="") as csv_file:
             reader = csv.DictReader(csv_file)
             annotation_row = next(reader, None)
@@ -72,7 +63,7 @@ try:
                     count_object = 0
                     continue
 
-                # Запись изображения
+                # write image
 
                 xtl = int(annotation_row["x"])
                 ytl = int(annotation_row["y"])
@@ -81,7 +72,7 @@ try:
                 xbr = xtl + w
                 ybr = ytl + h
 
-                # Проверка аннотации
+                # check annotation
                 if xtl < 0:
                     xtl = 0
                 if ytl < 0:
@@ -91,7 +82,6 @@ try:
                 if frame_height <= ybr:
                     ybr = frame_height - 1
 
-                # if MAX_WIDTH_OBJECT >= w > MIN_WIDTH_OBJECT and MAX_HEIGHT_OBJECT >= h > MIN_HEIGHT_OBJECT:
                 file_name = f"ch01_20200605115731-frame {frame_count:08d}-num xtl({xtl})_ytl({ytl})_w({w})_h({h}).jpg"
 
                 cv2.imwrite(
