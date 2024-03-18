@@ -1,0 +1,42 @@
+yolov5_deepsort: 
+ 
+ detector:
+  model_name: 'yolov5n_640_16.pt'
+  tracked_class: 'drone'
+  downscale_factor: 2
+  confidence_threshold: 0.1
+  disp_obj_detect_box: True   # Set to true if you want to view the detections from object detector
+ 
+ tracker:
+  max_age: 10                # Maximum number of frames to keep a track alive without new detections. Default is 30
+  n_init: 5                  # Minimum number of detections needed to start a new track. Default is 3
+  nms_max_overlap: 1.0       # Maximum overlap between bounding boxes allowed for non maximal supression(NMS).If two bounding boxes overlap by more than this value, the one with the lower confidence score is suppressed. Defaults to 1.0.
+  max_cosine_distance: 0.3   # Maximum cosine distance allowed for matching detections to existing tracks. If the cosine distance between the detection's feature vector and the track's feature vector is higher than this value, the detection is not matched to the track. Defaults to 0.2
+  nn_budget: None            # Maximum number of features to store in the Nearest Neighbor index. If set to None, the index will have an unlimited budget. This parameter affects the memory usage of the tracker. Defaults to None.
+  override_track_class: None #Optional override for the Track class used by the tracker. This can be used to subclass the Track class and add custom functionality. Defaults to None.
+  embedder: 'mobilenet'      #The name of the feature extraction model to use. The options are "mobilenet" or "efficientnet". Defaults to "mobilenet".
+  half: True                 # Whether to use half-precision floating point format for feature extraction. This can reduce memory usage but may result in lower accuracy. Defaults to True
+  bgr: False                  #Whether to use BGR color format for images. If set to False, RGB format will be used. Defaults to True.
+  embedder_gpu: False         #Whether to use GPU for feature extraction. If set to False, CPU will be used. Defaults to True.
+  embedder_model_name: None   #Optional model name for the feature extraction model. If not provided, the default model for the selected embedder will be used.
+  embedder_wts: None          # Optional path to the weights file for the feature extraction model. If not provided, the default weights for the selected embedder will be used.
+  polygon: False             # Whether to use polygon instead of bounding boxes for tracking. Defaults to False.
+  today: None                 # Optional argument to set the current date. This is used to calculate the age of each track in days. If not provided, the current date is used.
+  
+  #tracker visualization parameters
+  disp_tracks: True           # Set to True if you want to display tracks
+  disp_obj_track_box: True    # Set to True if you want to display the object tracking box
+  obj_tack_color: (51,255,255) # Track color in BGR format 
+  obj_track_box_color: (0,0,255)  # Track box color in BGR Format 
+
+ dataloader:
+  data_source : "video file"   # source can be set to either "video file" or "webcam"
+  webcam_id : 2                # if using external webcam. Please modify based on your system
+  data_path: "test_video.mp4" # path to the video file if you are using a video as input
+  frame_width:  1280
+  frame_height:  720
+ 
+ main:
+  model_name: 'yolov5n_640_16.pt'
+  disp_fps: True 
+  disp_obj_count: True
