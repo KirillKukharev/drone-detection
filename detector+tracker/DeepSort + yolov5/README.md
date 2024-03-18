@@ -51,7 +51,6 @@ yolov5-deepsort
     ├── dataloader.py
     ├── detector.py
     └── tracker.py
-├── data
 ├── environment.yml
 ├── config.yml
 ├── README.md
